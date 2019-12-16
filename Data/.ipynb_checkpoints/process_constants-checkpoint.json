@@ -1,0 +1,74 @@
+{
+    "component": [
+        "MEB"
+    ],
+    "p_netting": [
+        0
+    ],
+    "pa_amin-trockner_temperatur_cofely_ref_c": [
+        20.0
+    ],
+    "pa_ce-capro_lactam_ref_%": [
+        0.0
+    ],
+    "pa_ctmc_richtwert_ref_%": [
+        0.12
+    ],
+    "pa_raum_temperatur_start_ref_high_c": [
+        27.0
+    ],
+    "pa_raum_temperatur_start_ref_low_c": [
+        18.0
+    ],
+    "pa_staub-sauger_ref_low_0_aus_>0_an": [
+        0.0
+    ],
+    "pa_temperatur_chlorbad_start_ref_c": [
+        20.0
+    ],
+    "pa_temperatur_m-pda-bad_ref_high": [
+        22.0
+    ],
+    "pa_temperatur_m-pda-bad_ref_low": [
+        17.0
+    ],
+    "ps_auftragsbank_temperatur_start_ref_c": [
+        19.0
+    ],
+    "ps_auftragswerk_feuchtigkeit_ref_high_%": [
+        65.0
+    ],
+    "ps_auftragswerk_feuchtigkeit_ref_low_%": [
+        45.0
+    ],
+    "ps_bad_temperatur_ref_high_c": [
+        23.0
+    ],
+    "ps_bad_temperatur_ref_low_c": [
+        17.0
+    ],
+    "ps_c_losung_ref_wt_%": [
+        31.0
+    ],
+    "ps_dicke_as_ref_high_micro_m": [
+        150.0
+    ],
+    "ps_dicke_as_ref_low_micro_m": [
+        140.0
+    ],
+    "ps_gap_ref_high_micro_m": [
+        280.0
+    ],
+    "ps_gap_ref_low_micro_m": [
+        250.0
+    ],
+    "ps_raum-feuchtigkeit_start_ref_high_%": [
+        100.0
+    ],
+    "ps_raum-feuchtigkeit_start_ref_low_%": [
+        45.0
+    ],
+    "ps_raum_temperatur_start_ref_c": [
+        24.0
+    ]
+}
