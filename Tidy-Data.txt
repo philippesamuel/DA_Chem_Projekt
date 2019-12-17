@@ -1,0 +1,3 @@
+https://r4ds.had.co.nz/tidy-data.html
+
+https://campus.datacamp.com/courses/cleaning-data-in-python/tidying-data-for-analysis?ex=1
