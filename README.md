@@ -6,6 +6,7 @@ Bearbeitung des Projektes für Data Analytics for Chemists and Chemical Engineer
 
 <details open>
 <summary> Januar 2020 </summary>
+ 
   * [09-01-20](meetings/2020-01-09.md)
   * [06-01-20](meetings/2020-01-06.md)
 </details>
