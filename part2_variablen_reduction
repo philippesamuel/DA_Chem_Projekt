@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan  8 17:03:47 2020
+
+@author: elron
+"""
+
+import pandas as pd
+import pandas_profiling
+
+# Importing the dataset, before multiindex was set, should be equivalent to "process_data_df10:gereinigter Datensatz" after dropping multiindex
+df = pd.read_csv('process_data__sorted_df9_before_multiindex')  
+df.drop('Product_type_group', axis = 1, inplace = True)
+VarbNames = list(df.columns)
+
+#profile = df.profile_report(title='Pandas Profiling Report : df9')
+#profile.to_file(output_file = 'Pandas_Profiling_Report_d9.html')
+
+
+### Allgemein Comments
+# 17 na values for p_product
+# maybe drop sc_d_links_anz_max because has 118639 zero values (0.04 % are not zero)
+#sc_d_rechts_anz_min has 118674 (> 99.9%) zeros
+#sc_d_rechts_anz_max has 118528 (99.9%) zeros
+# qc barcode leak_test_value drop ? which info does it contain ?
+# qc breite has only 985 and zer0 as values and only 17 zero values, maybe make the zeros zu 985 and take it out as constant
+# qc_lasttest which information does it contain maybe drop it, 8 distinct count values 1 to 7
+
+# High distinct count columns
+# qc_durchfluss, qc_a-value_l/m2/h/bar, qc_b-value_m/s_10-6. qc_salzrckhalt, pa_coating
+# qc_serien number as index and drop duplicates ? or does it have a conncection with qc_lasttest ? 
+ 
+
+
+
+
+# TO DO Create a function out of it !!!
+#### Mean columns for multiple measurement columns
+# make mean column, check if na values are in colum, drop all multiple measurment columns
+df1 = df.copy()
+# pa_cm-pda
+df1['pa_cm-pda_mean'] = df1.loc[:,'pa_cm-pda_0m':'pa_cm-pda_4000m'].mean(axis = 1)
+pd.isna(df1['pa_cm-pda_mean']).sum()
+df1['pa_cm-pda_mean'].nlargest(20)
+df1.drop(df1.loc[:,'pa_cm-pda_0m':'pa_cm-pda_4000m'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_chlorkonzentration --> chlorkonzentration bis 0.5 ppm measurable with test stripes (google search)
+df1['pa_chlorkonzentration_ppm_mean'] = df1.loc[:,'pa_chlorkonzentration_0m_ppm':'pa_chlorkonzentration_4000m_ppm'].mean(axis = 1)
+pd.isna(df1['pa_chlorkonzentration_ppm_mean']).sum()
+df1['pa_cm-pda_mean'].nlargest(20)
+df1.drop(df1.loc[:,'pa_chlorkonzentration_0m_ppm':'pa_chlorkonzentration_4000m_ppm'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_air-knife_vor_amin_bad
+df1['pa_air-knife_vor_amin_bad_mean'] = df1.loc[:,'pa_air-knife_vor_amin_bad_0m_%':'pa_air-knife_vor_amin_bad_4200m_%'].mean(axis = 1)
+pd.isna(df1['pa_air-knife_vor_amin_bad_mean']).sum()
+df1.drop(df1.loc[:,'pa_air-knife_vor_amin_bad_0m_%':'pa_air-knife_vor_amin_bad_4200m_%'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_airknife_vor_amin_trockner
+df1['pa_airknife_vor_amin_trockner_mean'] = df1.loc[:,'pa_airknife_vor_amin_trockner_0m_%':'pa_airknife_vor_amin_trockner_4200m_%'].mean(axis = 1)
+pd.isna(df1['pa_airknife_vor_amin_trockner_mean']).sum()
+df1.drop(df1.loc[:,'pa_airknife_vor_amin_trockner_0m_%':'pa_airknife_vor_amin_trockner_4200m_%'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_amin-trockner_feuchtigkeit_danfugt_bs
+df1['pa_amin-trockner_feuchtigkeit_danfugt_bs_mean'] = df1.loc[:,'pa_amin-trockner_feuchtigkeit_danfugt_bs_0m_%':'pa_amin-trockner_feuchtigkeit_danfugt_bs_4000m_%'].mean(axis = 1)
+pd.isna(df1['pa_amin-trockner_feuchtigkeit_danfugt_bs_mean']).sum()
+df1.drop(df1.loc[:,'pa_amin-trockner_feuchtigkeit_danfugt_bs_0m_%':'pa_amin-trockner_feuchtigkeit_danfugt_bs_4000m_%'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_amin-trockner_feuchtigkeit_danfugt_as
+df1['pa_amin-trockner_feuchtigkeit_danfugt_as_mean'] = df1.loc[:,'pa_amin-trockner_feuchtigkeit_danfugt_as_0m':'pa_amin-trockner_feuchtigkeit_danfugt_as_4000m'].mean(axis = 1)
+pd.isna(df1['pa_amin-trockner_feuchtigkeit_danfugt_as_mean']).sum()
+df1.drop(df1.loc[:,'pa_amin-trockner_feuchtigkeit_danfugt_as_0m':'pa_amin-trockner_feuchtigkeit_danfugt_as_4000m'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# pa_amin-trockner_feuchtigkeit_cofely
+df1['pa_amin-trockner_feuchtigkeit_cofely_mean'] = df1.loc[:,'pa_amin-trockner_feuchtigkeit_cofely_0m_%':'pa_amin-trockner_feuchtigkeit_cofely_4200m_%'].mean(axis = 1)
+pd.isna(df1['pa_amin-trockner_feuchtigkeit_cofely_mean']).sum()
+df1.drop(df1.loc[:,'pa_amin-trockner_feuchtigkeit_cofely_0m_%':'pa_amin-trockner_feuchtigkeit_cofely_4200m_%'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# ps_dicke
+df1['ps_dicke_mean'] = df1.loc[:,'ps_dicke_1':'ps_dicke_4'].mean(axis = 1)
+pd.isna(df1['ps_dicke_mean']).sum()
+df1.drop(df1.loc[:,'ps_dicke_1':'ps_dicke_4'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# ps_bad_temperatur
+df1['ps_temperatur_mean'] = df1.loc[:,'ps_bad_temperatur_0m_c':'ps_bad_temperatur_4000m_c'].mean(axis = 1)
+pd.isna(df1['ps_temperatur_mean']).sum()
+df1.drop(df1.loc[:,'ps_bad_temperatur_0m_c':'ps_bad_temperatur_4000m_c'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# ps_auftragswerk_feuchtigkeit
+df1['ps_auftragswerk_feuchtigkeit_mean'] = df1.loc[:,'ps_auftragswerk_feuchtigkeit_0m_%':'ps_auftragswerk_feuchtigkeit_4200m_%'].mean(axis = 1)
+pd.isna(df1['ps_auftragswerk_feuchtigkeit_mean']).sum()
+df1.drop(df1.loc[:,'ps_auftragswerk_feuchtigkeit_0m_%':'ps_auftragswerk_feuchtigkeit_4200m_%'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# sc_d_links_werte
+df1['sc_d_links_werte_mean'] = df1.loc[:,'sc_d_links_werte01':'sc_d_links_werte20'].mean(axis = 1)
+pd.isna(df1['sc_d_links_werte_mean']).sum()
+df1.drop(df1.loc[:,'sc_d_links_werte01':'sc_d_links_werte20'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+# sc_d_rechts_werte
+df1['sc_d_rechts_werte_mean'] = df1.loc[:,'sc_d_rechts_werte01':'sc_d_rechts_werte20'].mean(axis = 1)
+pd.isna(df1['sc_d_rechts_werte_mean']).sum()
+df1.drop(df1.loc[:,'sc_d_rechts_werte01':'sc_d_rechts_werte20'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+
+### remove all datetime values in seperate dataframe together with p_produrct_group_ and p_product and p_Product_type_group
+
+df1Dates = df.select_dtypes(include = ['datetime64'])
+df1.drop(df1Dates, axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1Dates= df1Dates.join(df1[['p_product_group','p_product','p_Product_type_group','reaction_end','reaction_start']])
+b = df1.filter(regex = 'datum')
+df1Dates=df1Dates.join(b)
+df1.drop(['reaction_start','reaction_end'], axis = 1, inplace = True)
+df1.drop(b, axis = 1, inplace = True)
+### remove all median columns into seperate dataframe together with p_produrct_group_ and p_product and p_Product_type_group
+
+df1MedianColumns = df1.filter(regex ='median')
+df1.drop(df1MedianColumns, axis = 1, inplace = True)
+df1MedianColumns = df1MedianColumns.join(df1[['p_product_group','p_product','p_Product_type_group']])
+VarbNames = list(df1.columns)
+
+### remove all ref and richtwert column into seperate dataframe together with p_produrct_group_ and p_product and p_Product_type_group
+
+df1Ref = df.filter(regex = '_ref_')
+df1Richtwert = df.filter(regex = '_richtwert_')
+df1Ref.drop(['pa_cm-pda_gewichts-%_richtwert_ref_low', 'pa_cm-pda_gewichts-%_richtwert_ref_high'], axis = 1 , inplace = True)
+df1RefRichtwert = df1Ref.join(df1Richtwert)
+df1.drop(df1RefRichtwert, axis = 1, inplace = True)
+df1RefRichtwert = df1RefRichtwert.join(df1[['p_product_group','p_product','p_Product_type_group']])
+VarbNames = list(df1.columns)
+
+df1.to_pickle("process_data_after_remove_variabel_remain_202.pkl")
+
+### replace 0 in qc_max salzrückhalt with only other value 99.99 , replace qc_breite 0 with only other value 965 and drop columns
+# qc breite has only 985 and zer0 as values and only 17 zero values, maybe make the zeros zu 985
+
+df1.drop(['qc_maximalersalzrueckhalt','qc_breite'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1.to_pickle("process_data_after_remove_variabel_remain_202.pkl")
+
+### Drop certain columns
+# maybe drop sc_d_links_anz_max because has 118639 zero values (0.04 % are not zero)
+#sc_d_rechts_anz_min has 118674 (> 99.9%) zeros --> könnte wichtige info trotzdem enthalten
+#sc_d_rechts_anz_max has 118528 (99.9%) zeros
+# qc barcode leak_test_value drop ? which info does it contain ?
+
+df1.drop(['sc_d_links_anz_max','sc_d_rechts_anz_min','sc_d_rechts_anz_max','qc_barcode_leak_test_values'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1.to_pickle("process_data_after_remove_variabel_remain_196.pkl")
+
+df1.drop(['pa_ctmc_richtwert_%','pa_chlorkonzentration_richtwert_low_ppm','pa_chlorkonzentration_richtwert_high_ppm'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1.to_pickle("process_data_after_remove_variabel_remain_191.pkl")
+df1 = pd.read_pickle("process_data_after_remove_variabel_remain_191.pkl")
+### seperate all columns with lsg (behälter mit den Lösungen) into seperate dataframe
+
+df1Lsg = df1.loc[:,['pa_mpda_lsg','pa_chlorlsg','pa_sbs_lsg','pa_alkalilsg']]
+df1.drop(df1Lsg, axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1Lsg = df1Lsg.join(df1[['p_product_group','p_product','p_Product_type_group']])
+
+### drop ps and nr column
+
+df1.drop(['ps','nr'], axis = 1, inplace = True)
+VarbNames = list(df1.columns)
+df1.to_pickle("process_data_after_remove_variabel_remain_185.pkl")
+df1.to_pickle("process_data_after_remove_variabel_remain_176.pkl")
+# drop p_product size and effective area_per leaf_m2 since its just two values (not specific for brackwasser or Seewassser)
+a = df1.groupby(['p_product_group','p_product_size']).count()
+
+### check qc_minimal maximaler durchfluss for unique values count
+
+pd.isna(df1['p_product']).sum()
+
+unList1 = df1.loc[:,'qc_maximalerdurchfluss'].unique() 
+unList2 = df1.loc[:,'qc_minimalerdurchfluss'].unique() 
+unList3 = df1.loc[:,'qc_minimalersalzrueckhalt'].unique() 
+unList4 = df1.loc[:,'qc_maximalersalzrueckhalt'].unique() 
+
+pd.isna(df1['pa_amin-trockner_feuchtigkeit_cofely_mean']).sum()
+
+
+
+unlistpproduct = list(df1.loc[:,'p_product'].unique()) 
+nrUn = len(unList)
+
+
+
+### drop of recoded columns
+
+#p_product_size [1.4646, 1.3914, 0] is a recoding of p_effective_area_per_leaf_m2 [8, 4, 0]
+#pa_amin-trockner_feuchtigkeit_cofely_ref_low_% [79., 77.,  0.] is a recoding of pa_amin-trockner_feuchtigkeit_cofely_ref_high_% [81., 80.,  0.]
+#pa_amin-trockner_feuchtigkeit_danfugt_bs_ref_high_% [57., 56., 65., 50.])is a recoding of pa_amin-trockner_feuchtigkeit_danfugt_as_ref_high [58., 60., 67., 55.])	Rejected
+#pa_amin-trockner_feuchtigkeit_danfugt_bs_ref_low_% is a recoding of pa_amin-trockner_feuchtigkeit_danfugt_as_ref_low
+#pa_decan-trockner_geblase_ref_% is a recoding of pa_bahn-geschwindigkeit_ref_m/min
+#pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_low_c is a recoding of pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_high_c
+#qc_konzentrationflow ([4800., 1200.,    0.]) is a recoding of p_product_size
+#qc_maximalersalzrueckhalt [99.99, 0] is a recoding of qc_breite [965.,   0.])
+#qc_ph [8.0, 7.0, 0] is a recoding of qc_nachkommasalzrueckhalt  pH wert von 0 (17 counts) macht keinen sinn
+#qc_temperaturc is a recoding of qc_maximalersalzrueckhalt
+#sc_d_parameter_deltamax is a recoding of sc_d_parameter_anz_werte
+
+
+
+
+
