@@ -1,0 +1,54 @@
+Bei den Membranen handelt es sich um Kompositionsmembranen
+
+- mikroporöse struktur (PS) in der Literatur wird diese Schicht nur als Stützschicht bezeichnet.
+  Sie soll wenig bis gar keinen Einfluss auf den Rückhalt haben. Sie dient eher der mechanischen Stabilität
+- dünne schicht (PA). Diese Schicht stellt die aktive Schicht dar. Sie muss dünn sein, da der Durchfluss umgekehrt 
+  proportional zur Membrandicke ist
+
+
+
+PS Coating:
+- Besitzt nur 4 Variablen. Temperatur, Feuchtigkeit, dicke, und ps_c_lösung_wt (31% und 33%)
+  Bei Lanxess nach genauem Herstellungsprozess erkundigen ?
+
+
+PA Coating
+Das Coating erfolgt über in-situ-Methode:
+
+	PA über Grenzflächenpolymerisation (floaten des LöMi Gemisches) : 
+	Zwei Monomere : TMC im LöMi n-decane (unpolar)
+				Trimesoylchlorid ist moisture sensitive. Es zersetzt sich dann. Es muss
+				in heißem LöMi gelöst werden, da es sich sonst nicht vollständig löst.
+				Temp von 50 bis 70°C.
+				Zersetzungsprodukte sind HCl, CO und CO2 ---> Hypothese!!!
+				
+				m-PDA im LöMi Wasser (polar)
+					m-PDA wird als Hydrochloridsalz verkauft
+						
+	beide LöMi mischen sich nicht, daher findet die Reaktion nur an der Phasengrenzfläche statt.
+		
+	PS wird Gelmaskiert via Tauchverfahren (Solvent Coating mit DMF). 
+	Die PS Schicht und DMF coagulieren zusammen zu einem Gel. Das verhindert, dass etwas in die Poren von PS kommt.
+	Das LöMi wird später im Ofen rausgetempert. DMF Siedepunkt von 153°C
+		
+	Dann wird die Rolle zuerst in m-PDA/H20 getaucht und benetzt.
+	Die benetzte Membran wird dann in TMC/n-decan getaucht und kurzzeitig erhitzt 
+	Die Reaktion findet statt. Sie klingt schnell ab. Dies geschieht weil die enstehende Schicht 
+	eine Diffusionsbarriere darstellt für die Monomere (TMC und m-PDA)
+	Die Reaktion 
+
+	Anschließend wird die Schicht getempert wobei die PA schicht mit der PS Schicht verbunden wird.
+
+
+Sensitive Variablen/Hypothesen:
+- TMC Konzentration/Zustand --> indirekt über die Chlorkonzentration erfassbar
+- LöMi-Starttemperaturen
+- Erfolg der Gelmaskierung. Es könnten Nebenprodukte entstehen wenn noch Reste vom PS Schritt da sind.
+- Wie lange ist die Gelmaskierung. PS Rollen lösen sich in DMF
+- Bei welcher Temperatur wird getempert. Wenn nicht alles DMF weg ist löst es PS Rolle
+- Die Benetzung muss sehr dünn erfolgen. Außerdem muss die Rolle schnell durchgezogen werden da die Reaktion diffussionlim  itiert ist
+
+
+
+
+
