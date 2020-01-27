@@ -37,6 +37,7 @@ Das Coating erfolgt über in-situ-Methode:
 	eine Diffusionsbarriere darstellt für die Monomere (TMC und m-PDA)
 	Die Reaktion 
 
+	Bei der Reaktion wird HCl frei. Daher wird Alkalilösung (NaOH) zugegeben.
 	Anschließend wird die Schicht getempert wobei die PA schicht mit der PS Schicht verbunden wird.
 
 
