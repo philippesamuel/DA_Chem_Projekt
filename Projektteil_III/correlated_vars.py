@@ -1,0 +1,45 @@
+p90 = ['pa_amin-trockner_feuchtigkeit_danfugt_as_2000m',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_3000m',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_4000m',
+ 'pa_vertikale_feuchte_oben_ende_%',
+ 'pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_high_c',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_bs_ref_high_%',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_ref_low',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_ref_high',
+ 'pa_amin-trockner_feuchtigkeit_cofely_ref_low_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_ref_high_%',
+ 'pa_vertikale_feuchte_oben_ref_high_%',
+ 'f_danfugt_as_median']
+
+s90 = ['pa_amin-trockner_feuchtigkeit_danfugt_bs_2000m_%',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_bs_3000m_%',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_bs_4000m_%',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_2000m',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_3000m',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_4000m',
+ 'pa_vertikale_feuchte_oben_mitte_%',
+ 'pa_vertikale_feuchte_oben_ende_%',
+ 'pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_high_c',
+ 'pa_amin-trockner_temperatur_danfugt_ref_c',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_ref_low',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_as_ref_high',
+ 'pa_amin-trockner_feuchtigkeit_cofely_ref_low_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_ref_high_%',
+ 'pa_vertikale_feuchte_oben_ref_high_%',
+ 'f_danfugt_bs_median',
+ 'f_danfugt_as_median',
+ 'f_codfely_median']
+
+p2_90 = ['pa_amin-trockner_feuchtigkeit_cofely_600m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_1200m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_1800m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_2400m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_3000m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_3600m_%',
+ 'pa_amin-trockner_feuchtigkeit_cofely_4200m_%',
+ 'pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_high_c',
+ 'pa_amin-trockner_feuchtigkeit_danfugt_bs_ref_high_%']
+
+s2_90 = ['pa_amin-trockner_feuchtigkeit_danfugt_as_1000m',
+ 'pa_temperatur_n-decan-lsg_chem_vorbereitung_start_ref_high_c']
+
