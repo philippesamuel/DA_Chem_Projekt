@@ -1,14 +1,3 @@
-index,95_to_96_Relation,96_to_97_Relation,97_to_98_Relation,98_to_99_Relation
-pa_bad-wechsel_m-pda,"3,000","2,118","1,656","1,885"
-pa_bad-wechsel_hw1,"3,000","2,118","1,656","1,850"
-pa_bad-wechsel_hw2,"0,000","0,000","0,012","0,019"
-pa_bad-wechsel_chlor,"3,000","2,118","1,656","1,885"
-pa_bad-wechsel_hw3,"3,000","2,118","1,656","1,850"
-pa_staub-sauger_1_vor_aminbad_0_aus_>0_an,"0,000","0,000","27,333","10,900"
-pa_staub-sauger_2_nach_aminbad,"0,000","0,000","27,333","237,000"
-pa_staub-sauger_3_zw5_vor_hw2,"0,412","0,233","0,349","0,297"
-pa_staub-sauger_4_nach_hw2,"0,412","0,233","0,349","0,304"
-pa_staub-sauger_5,"23,000","25,500","13,167","18,040"
-pa_bad-wechsel_mpda_nach,"2,000","2,786","2,148","1,532"
-pa_bad-wechsel_chlor_nach,"2,000","2,786","2,148","1,532"
-pp_actual_usage,"0,000","0,019","0,076","0,060"
+version https://git-lfs.github.com/spec/v1
+oid sha256:b5b14b23e77070e67714ec04667c439d15f814dd73c1cc6b544f88d4796fd190
+size 831
